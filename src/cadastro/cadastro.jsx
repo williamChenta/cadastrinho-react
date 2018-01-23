@@ -7,7 +7,7 @@ export default class Cadastro extends Component {
 
     constructor(props) {
         super(props)
-        this.state = { nome: '', email: '', pessoas: [], id: null }
+        this.state = { id: '', nome: '', email: '', pessoa: [] }
 
         this.salvar = this.salvar.bind(this)
         this.changeNome = this.changeNome.bind(this)
@@ -19,8 +19,8 @@ export default class Cadastro extends Component {
     }
 
     findPessoa(idRet) {
-        axios.get(`${URL}`)
-            .then(resp => this.setState({ pessoas: resp.data, id: idRet }))
+        axios.get(`${URL}/${idRet}`)
+            .then(resp => this.setState({ pessoa: resp.data }))
     }
 
     salvar() {
@@ -28,11 +28,11 @@ export default class Cadastro extends Component {
         const email = this.state.email
         const id = this.state.id
 
-        if (id != null) {
-            axios.put(URL, { id, nome, email })
+        if (id) {
+            axios.put(`${URL}`, { id, nome, email })
                 .then(() => console.log('alterou!!'))
         } else {
-            axios.post(URL, { nome, email })
+            axios.post(`${URL}`, { nome, email })
                 .then(() => console.log('cadastrou!!'))
         }
     }
@@ -47,15 +47,12 @@ export default class Cadastro extends Component {
 
     render() {
 
-        const pessoasRet = this.state.pessoas
-        const idRet = this.state.id
+        const pessoa = this.state.pessoa
 
-        pessoasRet.map(pessoa => {
-            if (pessoa.id == idRet) {
-                this.nome = pessoa.nome
-                this.email = pessoa.email
-                this.id = pessoa.id
-            }
+        pessoa.map(p => {
+            this.nome = p.nome
+            this.email = p.email
+            this.id = p.id
         })
 
         return (

@@ -22,7 +22,7 @@ export default class Listagem extends Component {
     }
 
     refresh() {
-        axios.get(`${URL}`)
+        axios.get(`${URL}/0`)
             .then(resp => this.setState({ pessoas: resp.data }))
     }
 
