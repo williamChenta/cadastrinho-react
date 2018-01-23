@@ -7,7 +7,7 @@ export default class Cadastro extends Component {
 
     constructor(props) {
         super(props)
-        this.state = { id: '', nome: '', email: '', pessoa: [] }
+        this.state = { id: '', nome: undefined, email: undefined, pessoa: [] }
 
         this.salvar = this.salvar.bind(this)
         this.changeNome = this.changeNome.bind(this)
@@ -38,11 +38,11 @@ export default class Cadastro extends Component {
     }
 
     changeNome(e) {
-        this.setState({ ...this.state, nome: e.target.value })
+        this.setState({ nome: e.target.value })
     }
 
     changeEmail(e) {
-        this.setState({ ...this.state, email: e.target.value })
+        this.setState({ email: e.target.value })
     }
 
     render() {
