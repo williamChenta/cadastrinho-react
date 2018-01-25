@@ -6,3 +6,15 @@
 #imgLogo {
     margin-left: calc(50% - 293px);    
 }
+
+.feminino {
+    color: red;
+}
+
+.masculino {
+    color: blue;
+}
+
+.black {
+    color: #000;
+}

@@ -44,7 +44,7 @@ export default class Listagem extends Component {
                     <tbody>
 
                         {pessoas.map(pessoa =>
-                            <tr key={pessoa.id}>
+                            <tr key={pessoa.id} className={`${pessoa.sexo=='F' ? 'feminino' : 'masculino'}`}>
                                 <td>{pessoa.nome}</td>
                                 <td>{pessoa.email}</td>
                                 <td>
@@ -52,7 +52,7 @@ export default class Listagem extends Component {
                                         <i className={'fa fa-pencil'} title='Alterar'></i>
                                     </Link>&nbsp;&nbsp;
                                     <span>
-                                        <i className={'fa fa-trash'} title='Excluir'
+                                        <i className={'fa fa-trash black'} title='Excluir'
                                         onClick={()=>this.delete(pessoa.id)}></i>
                                     </span>
                                 </td>
