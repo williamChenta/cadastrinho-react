@@ -44,7 +44,7 @@ export default class Listagem extends Component {
                     <tbody>
 
                         {pessoas.map(pessoa =>
-                            <tr key={pessoa.id} className={`${pessoa.sexo=='F' ? 'feminino' : 'masculino'}`}>
+                            <tr key={pessoa.id} className={pessoa.sexo=='F' ? 'feminino' : 'masculino'}>
                                 <td>{pessoa.nome}</td>
                                 <td>{pessoa.email}</td>
                                 <td>
