@@ -6,8 +6,10 @@ const URL = 'http://localhost:8080/crudRest2018/pessoas'
 export default class Cadastro extends Component {
 
     constructor(props) {
+        console.log('passou construtor')
+
         super(props)
-        this.state = { id: '', nome: undefined, email: undefined, pessoa: [] }
+        this.state = { id: '', nome: '', email: '', pessoa: [] }
 
         this.salvar = this.salvar.bind(this)
         this.changeNome = this.changeNome.bind(this)
@@ -46,14 +48,9 @@ export default class Cadastro extends Component {
     }
 
     render() {
-
         const pessoa = this.state.pessoa
 
-        pessoa.map(p => {
-            this.nome = p.nome
-            this.email = p.email
-            this.id = p.id
-        })
+        pessoa.map(p => ( this.nome = p.nome, this.email = p.email, this.id = p.id))
 
         return (
             <div>
