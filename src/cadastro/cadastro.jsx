@@ -6,8 +6,6 @@ const URL = 'http://localhost:8080/crudRest2018/pessoas'
 export default class Cadastro extends Component {
 
     constructor(props) {
-        console.log('passou construtor')
-
         super(props)
         this.state = { id: '', nome: '', email: '', pessoa: [] }
 
